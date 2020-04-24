@@ -5,6 +5,9 @@ rawarray=()
 package=""
 version=""
 
+GREEN='\033[0;32m'
+NC='\033[0m'
+
 #if list or live
 if [[ "$1" == "-l" ]]; then
         #check for list name
@@ -37,7 +40,7 @@ do
                 searchresults=$(searchsploit "$package " "$version" | grep exploits)
                 if [[ "$searchresults" == *"| "* ]]; then
                         echo ""
-                        echo "Package: $package: $rawversion"
+                        echo -e "${GREEN}Package: $package $rawversion ${NC}"
                         echo "$searchresults"
                 fi
         fi
